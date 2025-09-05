@@ -1,0 +1,167 @@
+study_id,reference,title,year,environmental_context,control_group_scenario_prompt,intervention_group_scenario_prompt,response_instruction,response_options,note,n_comparison,n_control,n_intervention,sample_size_replication,binary_outcome,ATE,Robust_SE,significance_binary,llm_ATE,llm_Robust_SE,llm_p_value
+Allcott_1,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,You are participating in a household electricity usage study. ,You are participating in a household electricity usage study. ,"This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","control vs. treated (pretreatment, kWh)",83037,49290,33747,750,0,-0.004,0.071,0,-0.203,0.7162,0.7771
+Allcott_2,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,You are participating in a household electricity usage study. ,"Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","control vs. treated (first year, kWh)",83037,49290,33747,,0,-0.642,0.094,1,-0.813,0.2631,0.0021
+Allcott_3,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,You are participating in a household electricity usage study. ,"Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","control vs. treated (second year until drop, kWh)",83037,49290,33747,,0,-0.84,0.104,1,-0.9525,0.262,0.0003
+Allcott_4,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,You are participating in a household electricity usage study. ,"{% if group == ""continued"" %}
+Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}
+{% else %}  {# dropped group #}
+You used to receive a monthly household energy report, but these reports are no longer being sent.  
+Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh.
+{% endif %}","This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","control vs. treated (post-drop, kWh)",83037,49290,33747,,0,-0.627,0.123,1,-0.6635,0.2819,0.0187
+Allcott_5,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,You are participating in a household electricity usage study. ,You are participating in a household electricity usage study. ,"This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","dropped vs. continued (pretreatment, kWh)",33747,12117,21630,,0,-0.007,0.055,0,0.02,0.8132,0.9804
+Allcott_6,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,"Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","dropped vs. continued (first year, kWh)",33747,12117,21630,,0,0.002,0.066,0,-0.0123,0.2611,0.9625
+Allcott_7,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,"Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","dropped vs. continued (second year until drop, kWh)",33747,12117,21630,,0,-0.039,0.08,0,0.08,0.2642,0.7621
+Allcott_8,Allcott & Rogers (2012),The Short-Run and Long-Run Effects of Behavioral Interventions: Experimental Evidence from Energy Conservation,2012,Energy conservation,"You used to receive a monthly household energy report, but these reports are no longer being sent.  
+Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh.","Last month ({month_prev} ({year_prev})), your household electricity consumption was {user_last_month} kWh, which is {comparison} your neighbors' average of {neighbors_last_month} kWh.
+Here is your electricity consumption trend over the past 12 months:
+- {Month_1} ({Year_1}): You used {user_value_1} kWh; neighbors' average was {neighbors_value_1} kWh.
+- {Month_2} ({Year_2}): You used {user_value_2} kWh; neighbors' average was {neighbors_value_2} kWh.
+...
+- {Month_12} ({Year_12}): You used {user_value_12} kWh; neighbors' average was {neighbors_value_12} kWh.
+{% if avg_diff < 0 %}
+On average, over the past 12 months, you used {{ -avg_diff }} kWh less per month than your neighbors, saving you approximately {{ savings }} each month.
+{% else %}
+On average, over the past 12 months, you used {{ avg_diff }} kWh more per month than your neighbors, which costs you approximately {{ extra_cost }} extra each month.
+{% endif %}","This is {month_current} ({year_current}). For this month, what is your household electricity consumption in kilowatt-hours (kWh)? ","Please respond with a single number only, without any additional explanation or units.","dropped vs. continued (post-drop, kWh)",33747,12117,21630,,0,-0.38,0.093,1,-0.6786,0.3211,0.0348
+Paunov_1,Paunov & Gr端ne-Yanoff (2023),Boosting vs. nudging sustainable energy consumption: a long-term comparative field test in a residential context,2023,Energy conservation,"You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.","You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+Over the past several weeks, your and your friends' weekly electricity usage were as follows:
+{Week_1}: You ({user_value_1} kWh), Friends ({friends_value_1} kWh)
+...
+You have set an energy-saving goal for yourself (10%).",Please output your electricity usage this week (in kWh) and your hot water usage this week (in cubic meters). ,"Output two numbers, separated by a comma.","baseline vs. nudge (cumulative electricity, kWh)",43,21,22,65,0,0.4049,0.2244,1,3.246,0.9279,0.0014
+Paunov_2,Paunov & Gr端ne-Yanoff (2023),Boosting vs. nudging sustainable energy consumption: a long-term comparative field test in a residential context,2023,Energy conservation,"You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+Over the past several weeks, your and your friends' weekly electricity usage were as follows:
+{Week_1}: You ({user_value_1} kWh), Friends ({friends_value_1} kWh)
+...
+You have set an energy-saving goal for yourself (10%).","You are participating in an experiment. This is week {week_num}.
+Next to each device in your daily life (e.g., oven, fridge), there is a QR code you can scan to view energy-saving tips specific to that device. It is very convenient. You can scan the QR codes with your phone to receive and store the tips.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.",Please output your electricity usage this week (in kWh) and your hot water usage this week (in cubic meters). ,"Output two numbers, separated by a comma.","nudge vs. boost (cumulative electricity, kWh)",44,22,22,,0,-0.6507,0.2229,1,-3.2444,0.8734,0.0009
+Paunov_3,Paunov & Gr端ne-Yanoff (2023),Boosting vs. nudging sustainable energy consumption: a long-term comparative field test in a residential context,2023,Energy conservation,"You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.","You are participating in an experiment. This is week {week_num}.
+Next to each device in your daily life (e.g., oven, fridge), there is a QR code you can scan to view energy-saving tips specific to that device. It is very convenient. You can scan the QR codes with your phone to receive and store the tips.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.",Please output your electricity usage this week (in kWh) and your hot water usage this week (in cubic meters). ,"Output two numbers, separated by a comma.","baseline vs. boost (cumulative electricity, kWh)",43,21,22,,0,-0.2458,0.1954,0,0.0016,0.5669,0.9978
+Paunov_4,Paunov & Gr端ne-Yanoff (2023),Boosting vs. nudging sustainable energy consumption: a long-term comparative field test in a residential context,2023,Energy conservation,"You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.","You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+Over the past several weeks, your and your friends' weekly electricity usage were as follows:
+{Week_1}: You ({user_value_1} kWh), Friends ({friends_value_1} kWh)
+...
+You have set an energy-saving goal for yourself (10%).",Please output your electricity usage this week (in kWh) and your hot water usage this week (in cubic meters). ,"Output two numbers, separated by a comma.","baseline vs. nudge (cumulative hot water, cubic meters)",43,21,22,,0,0.001,0.011,0,0.0918,0.0249,0.0008
+Paunov_5,Paunov & Gr端ne-Yanoff (2023),Boosting vs. nudging sustainable energy consumption: a long-term comparative field test in a residential context,2023,Energy conservation,"You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+Over the past several weeks, your and your friends' weekly electricity usage were as follows:
+{Week_1}: You ({user_value_1} kWh), Friends ({friends_value_1} kWh)
+...
+You have set an energy-saving goal for yourself (10%).","You are participating in an experiment. This is week {week_num}.
+Next to each device in your daily life (e.g., oven, fridge), there is a QR code you can scan to view energy-saving tips specific to that device. It is very convenient. You can scan the QR codes with your phone to receive and store the tips.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.",Please output your electricity usage this week (in kWh) and your hot water usage this week (in cubic meters). ,"Output two numbers, separated by a comma.","nudge vs. boost (cumulative hot water, cubic meters)",44,22,22,,0,-0.001,0.0092,0,0.0151,0.0257,0.5606
+Paunov_6,Paunov & Gr端ne-Yanoff (2023),Boosting vs. nudging sustainable energy consumption: a long-term comparative field test in a residential context,2023,Energy conservation,"You are participating in an experiment. This is week {week_num}.
+A web link library contains various energy-saving tips for your reference.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.","You are participating in an experiment. This is week {week_num}.
+Next to each device in your daily life (e.g., oven, fridge), there is a QR code you can scan to view energy-saving tips specific to that device. It is very convenient. You can scan the QR codes with your phone to receive and store the tips.
+As of this week, your cumulative electricity usage is {cumulative_value} kWh.",Please output your electricity usage this week (in kWh) and your hot water usage this week (in cubic meters). ,"Output two numbers, separated by a comma.","baseline vs. boost (cumulative hot water, cubic meters)",43,21,22,,0,0,0.0111,0,0.1069,0.0193,1.95E-06
+Vivek_1,Vivek et al. (2021),Toward achieving persistent behavior change in household water conservation,2021,Water conservation,"You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.","You are participating in an water usage experiment. This is week {week_num}.
+Your Water Usage were as follows:
+Last week: {user_last_value} liters/day
+Week before last: {user_week_before_last_value} liters/day
+Previous average: {user_previous_average_value} liters/day",Please estimate the daily household water usage (in liters per day) for this period. ,Give only one number. Do not add any words.,"C0 vs. T1 (during, liters)",60,30,30,120,0,-3.352,11.11,0,10.1317,2.9837,0.0008
+Vivek_2,Vivek et al. (2021),Toward achieving persistent behavior change in household water conservation,2021,Water conservation,"You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.","You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.",Please estimate the daily household water usage (in liters per day) for this period. ,Give only one number. Do not add any words.,"C0 vs. T1 (cooling off, liters)",60,30,30,,0,-21.28,13.07,0,8.0075,1.949,4.46E-05
+Vivek_3,Vivek et al. (2021),Toward achieving persistent behavior change in household water conservation,2021,Water conservation,"You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.","You are participating in an water usage experiment. This is week {week_num}.
+The sustainable water usage target is 50-70 liters/day. Compare your usage with this target: 
+{% if user_value > 70 %}
+Please note that your current water usage is above the sustainable level.
+{% else %}
+Congratulations! You are approaching a sustainable level of water conservation.
+{% endif %}",Please estimate the daily household water usage (in liters per day) for this period. ,Give only one number. Do not add any words.,"C0 vs. T2 (during, liters)",60,30,30,,0,-12.79,10.38,0,-32.6333,1.1978,< 1e-16
+Vivek_4,Vivek et al. (2021),Toward achieving persistent behavior change in household water conservation,2021,Water conservation,"You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.","You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.",Please estimate the daily household water usage (in liters per day) for this period. ,Give only one number. Do not add any words.,"C0 vs. T2 (cooling off, liters)",60,30,30,,0,-25.97,13.81,1,-26.9333,1.3238,< 1e-16
+Vivek_5,Vivek et al. (2021),Toward achieving persistent behavior change in household water conservation,2021,Water conservation,"You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.","You are participating in an water usage experiment. This is week {week_num}.
+Here are four practical and motivating tips to save water:
+1. Wash fruits in a bowl instead of under running water！you can save a significant amount of water each time.
+2. Turn off the tap while soaping your hands or doing laundry！each time you save 10-30 liters, which adds up quickly!
+3. Try shortening your shower time！most sailors finish in under 1 minute. You'll not only save water but also have more time for other activities!
+Your water usage last period is {user_value} liters/day.",Please estimate the daily household water usage (in liters per day) for this period. ,Give only one number. Do not add any words.,"C0 vs. T3 (during, liters)",60,30,30,,0,-20.09,11.57,1,-21.3933,3.4132,2.49E-09
+Vivek_6,Vivek et al. (2021),Toward achieving persistent behavior change in household water conservation,2021,Water conservation,"You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.","You are participating in an water usage experiment. This is week {week_num}.
+Your water usage last period is {user_value} liters/day.",Please estimate the daily household water usage (in liters per day) for this period. ,Give only one number. Do not add any words.,"C0 vs. T3 (cooling off, liters)",60,30,30,,0,-30.28,13.33,1,-28.9861,1.6276,< 1e-16
