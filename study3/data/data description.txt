@@ -1,0 +1,54 @@
+Dataset Description: 16-Day Longitudinal Experiment on Pro-Environmental Nudges
+
+This dataset comes from a 16-day longitudinal experiment designed to examine how different types and intensities of nudges affect pro-environmental behavior. Each row represents a single participant and includes demographic characteristics, baseline measures, daily willingness and behavior reports, reaction times, and post-test outcomes.
+
+1. Participant Demographics (from Day 1 Pre-Test Survey)
+• Age: Age in years
+• Sex: Gender (e.g., “Male”, “Female”)
+• Ethnicity: Self-reported ethnicity, including Asian, Black, White, Mixed and Other
+• Nationality: Nationality of the participant
+• Occupation: Job type
+1 = Student
+2 = Government or public sector employee
+3 = Private sector employee
+4 = Freelancer or self-employed
+5 = Other
+• Income: Income level
+1 = Less than £10,000
+2 = £10,001 – £20,000
+3 = £20,001 – £30,000
+4 = £30,001 – £40,000
+5 = £40,001 – £60,000
+6 = Above £60,000
+7 = Prefer not to say
+• Education (Education level):
+1 = Primary school or below
+2 = Middle school
+3 = High school
+4 = Associate degree
+5 = Bachelor’s degree
+6 = Master’s degree
+7 = Doctorate
+
+2. Experimental Variables
+• ID: Unique participant identifier
+• group: Assigned experimental condition (e.g., assistant_high, infor_low, control)
+
+3. Baseline (Pre-Test) Variables
+• envSelfEfficacy_pre: Environmental self-efficacy at baseline
+• envAttitude_pre: Environmental attitudes at baseline
+• envMotivation_pre: Environmental motivation at baseline
+
+4. Daily Measures (Day 1–Day 16)
+• scenarioN_willingness_dayX: Willingness rating in scenario N (N = 1–5, X = 1–16)
+• scenarioN_behavior_dayX: Reported behavior in scenario N
+• *_rt_dayX: Reaction time for willingness and behavior questions
+• nudge_assi_rt_dayX / nudge_inform_rt_dayX: Response time for interactive nudges (if applicable)
+
+5. Post-Test Variables (Day 16)
+• envSelfEfficacy_post: Environmental self-efficacy at post-test
+• envAttitude_post: Environmental attitudes after the intervention
+• envMotivation_post: Environmental motivation after the intervention
+• nudge_acceptance_post: Self-reported acceptance and favorability of the nudge
+• nudge_reactance_post: Self-reported resistance or negative reaction to the nudge
+• nudge_fatigue_post: Self-reported fatigue to the nudge

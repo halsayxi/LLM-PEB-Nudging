@@ -9,9 +9,16 @@ conda create -n ProEnvironment python=3.10
 pip install -r requirements.txt
 ```
 
+## Configure API
+
+Edit utils.py and set your API key:
+```
+api_key = "your_api_key_here"
+```
+
 ## Running the Experiments
 
-### Study 1: LLM Replication
+### Study 1: LLMs recapitulate human pro-environmental nudge effects
 
 #### short-term experiments
 ```
@@ -35,7 +42,7 @@ python run_long_term_3.py # Vivek
 
 > **Note**: Parameters that are shared across studies (e.g., --model_name, etc.) are only documented in Study 1 for brevity.
 
-### Study 2: Longitudinal simulations
+### Study 2: Longitudinal simulations reveal temporal decay of nudge effects
 ```
 python run_long.py # participant receives only one nudge
 python run_freq.py # participants receive nudges according to a schedule
@@ -49,7 +56,10 @@ python run_freq.py # participants receive nudges according to a schedule
 | `--frequency`  | `int`    | Interval between nudges (in rounds).                    |
 
 
-### Study 4:
+### Study 3: Human experiment validates decay and identifies dual pathways of persistence
+
+
+### Study 4: Network diffusion consolidates early adoption and shapes long-term persistence
 
 ```
 python run_contact.py
