@@ -20,13 +20,15 @@ api_key = "your_api_key_here"
 
 ### Study 1: LLMs recapitulate human pro-environmental nudge effects
 
-#### short-term experiments
+#### Short-Term Experiments
 ```
+cd study1/nudge_replication
 python run.py
 ```
 
-#### long-term experiments
+#### Long-Term Experiments
 ```
+cd study1/nudge_replication
 python run_long_term_0.py # Alloctt
 python run_long_term_2.py # Paunov
 python run_long_term_3.py # Vivek
@@ -42,8 +44,17 @@ python run_long_term_3.py # Vivek
 
 > **Note**: Parameters that are shared across studies (e.g., --model_name, etc.) are only documented in Study 1 for brevity.
 
+#### Result Analysis
+```
+cd study1/result_analysis
+python result_analysis.py
+python result_analysis_long.py
+```
+
+
 ### Study 2: Longitudinal simulations reveal temporal decay of nudge effects
 ```
+cd study2/longitudinal_simulation
 python run_long.py # participant receives only one nudge
 python run_freq.py # participants receive nudges according to a schedule
 ```
@@ -55,13 +66,24 @@ python run_freq.py # participants receive nudges according to a schedule
 | `--start_id`   | `int`    | Experiment ID to start from.                            |
 | `--frequency`  | `int`    | Interval between nudges (in rounds).                    |
 
+#### Result Analysis
+```
+cd study2/result_analysis
+python result_analysis.py
+```
 
 ### Study 3: Human experiment validates decay and identifies dual pathways of persistence
 
+#### Result Analysis
+```
+cd study3/result_analysis
+Rscript analysis.R
+```
 
 ### Study 4: Network diffusion consolidates early adoption and shapes long-term persistence
 
 ```
+cd study4/social_simulation
 python run_contact.py
 ```
 
@@ -71,3 +93,9 @@ python run_contact.py
 | `-activation_rate`    | `float`  | Probability that an edge is activated during the simulation (edge activation rate).                                                                                                                                                                  |
 | `--network_structure` | `str`    | Network type to use in the simulation: `swn`, `hcn`, `sbn`. They represent: <br>• `swn` → Watts-Strogatz (small-world networks) <br>• `hcn` → Barabási-Albert (scale-free networks) <br>• `sbn` → Stochastic-Block model (community-based networks). |
 | `--target_studies`    | `str`    | IDs of the experiments to run.                                                                                                                                                                                                                       |
+
+#### Result Analysis
+```
+cd study4/result_analysis
+python result_analysis.py
+```
