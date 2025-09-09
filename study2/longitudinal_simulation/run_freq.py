@@ -39,7 +39,7 @@ def process_chara(
     frequency,
 ):
     if round_num in [1, 2]:
-        json_path = os.path.join("..", "..", "..", "..", "..", "res_long", "gpt-3.5-turbo-0125_res", str(exp_data["study_id"]), f"{cha_num}.json")
+        json_path = os.path.join("..", "..", "..", "..", "res_long", "gpt-3.5-turbo-0125_res", str(exp_data["study_id"]), f"{cha_num}.json")
         if os.path.exists(json_path):
             with open(json_path, "r", encoding="utf-8") as f:
                 try:
