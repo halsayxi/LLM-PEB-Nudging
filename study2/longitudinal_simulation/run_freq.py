@@ -38,6 +38,29 @@ def process_chara(
     data_store,
     frequency,
 ):
+    if round_num in [1, 2]:
+        json_path = os.path.join("..", "..", "..", "..", "..", "res_long", "gpt-3.5-turbo-0125_res", str(exp_data["study_id"]), f"{cha_num}.json")
+        if os.path.exists(json_path):
+            with open(json_path, "r", encoding="utf-8") as f:
+                try:
+                    all_data = json.load(f)
+                    for item in all_data:
+                        if item.get("round") == round_num:
+                            if cha_num - 1 not in data_store:
+                                data_store[cha_num - 1] = []
+                            data_store[cha_num - 1].append(item)
+                            return
+                    print(
+                        f"[Warning] No round {round_num} data found for cha_num {cha_num}"
+                    )
+                except json.JSONDecodeError:
+                    print(
+                        f"[Error] Failed to parse JSON for cha_num {cha_num} at round {round_num}"
+                    )
+        else:
+            print(f"[Error] File not found: {json_path}")
+        return
+
     role = "Forget you are an AI model." + " " + role
     nudge_prompt = ""
     if (round_num - 2) % frequency == 0 and round_num != 2:
@@ -110,9 +133,6 @@ def process_chara(
         round_num,
     )
     if cha_num - 1 not in data_store:
-        print(
-            f"[Warning] No data found for cha_num {cha_num} in data_store. Initializing."
-        )
         data_store[cha_num - 1] = []
     data_store[cha_num - 1].append(res)
 
