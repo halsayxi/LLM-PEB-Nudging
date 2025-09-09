@@ -38,7 +38,14 @@ client = OpenAI(
 2. Save the file. The gpt_res function will now use your API key to call the OpenAI API.
 
 ## Running the Experiments
+You can choose between two ways to run the experiments:
 
+1. Run all experiments together with a single command:
+```bash
+./run.sh
+```
+2. Run each experiment separately by following the instructions provided in the sections below.
+   
 ### Study 1: LLMs recapitulate human pro-environmental nudge effects
 
 #### Short-Term Experiments

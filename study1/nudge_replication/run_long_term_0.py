@@ -130,9 +130,6 @@ def process_chara(
         round_num,
     )
     if cha_num - 1 not in data_store:
-        print(
-            f"[Warning] No data found for cha_num {cha_num} in data_store. Initializing."
-        )
         data_store[cha_num - 1] = []
     data_store[cha_num - 1].append(res)
 
