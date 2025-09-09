@@ -12,7 +12,6 @@ import math
 import random
 
 
-api_key = ""
 z = norm.ppf(0.975)
 
 
@@ -35,16 +34,12 @@ def get_system_prompt():
 
 system_prompt = get_system_prompt()
 
+client = OpenAI(
+    base_url="",
+    api_key= "",
+)
 
 def gpt_res(role, exp, model_name, temperature):
-    client = OpenAI(
-        base_url="https://svip.xty.app/v1",
-        api_key=api_key,
-        http_client=httpx.Client(
-            base_url="https://svip.xty.app/v1",
-            follow_redirects=True,
-        ),
-    )
     response = client.chat.completions.create(
         model=model_name,
         messages=[
