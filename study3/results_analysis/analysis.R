@@ -1150,7 +1150,7 @@ rt_block <- function(df, df_day) {
 ## ---------- C. MAIN PIPELINE ----------
 log_info("Start analysis")
 
-df <- read_data("data.csv")
+df <- read_data("../data/data.csv")
 df <- prep_group_factors(df)
 df <- prep_demographics(df)
 
