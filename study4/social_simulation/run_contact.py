@@ -273,6 +273,7 @@ def main():
             "..", "..", "..", "..", "..", "..", "..", "study1", "nudge_replication", "res", "gpt-3.5-turbo-0125_res",
             str(study_id), "profile", f"character_control_{n_control}.json"
         )
+        chara_file_path = os.path.abspath(chara_file_path)
         with open(chara_file_path, "r") as f:
             all_chara = json.load(f).values()
         if network_structure == "swn":
