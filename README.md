@@ -12,6 +12,7 @@ pip install -r requirements.txt
 ```
 ### R Installation
 Please install R by following the official instructions: https://cran.r-project.org/
+
 Installation steps for different operating systems (Windows / macOS / Linux) are provided on the official page.
 
 ## Configure API
