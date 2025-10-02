@@ -1,3 +1,13 @@
+options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+packages <- c("tidyverse", "tableone", "lme4", "lmerTest", "broom",
+              "broom.mixed", "minpack.lm", "interactions", "emmeans",
+              "ggplot2", "forcats", "afex", "bruceR", "car", "knitr",
+              "kableExtra", "sandwich", "effectsize")
+for (pkg in packages) {
+    if (!require(pkg, character.only = TRUE)) {
+        install.packages(pkg)
+    }
+}
 ## ---------- A. LOG HELPERS ----------
 get_script_path <- function() {
   ca <- commandArgs(trailingOnly = FALSE)
